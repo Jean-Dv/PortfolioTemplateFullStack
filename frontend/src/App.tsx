@@ -1,7 +1,12 @@
+import { Routes, Route } from 'react-router-dom'
+import { Home } from './pages'
+
 function App() {
   return (
     <div className='App'>
-      <h1>Portfolio Template With React and TypeScript</h1>
+      <Routes>
+        <Route path='/' element={<Home />} />
+      </Routes>
     </div>
   )
 }
