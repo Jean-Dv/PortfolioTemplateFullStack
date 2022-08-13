@@ -11,6 +11,7 @@
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Sections
@@ -30,6 +31,10 @@ body {
 
 main {
   display: block;
+}
+
+.App {
+  padding: 20px 20px 0 20px;
 }
 
 /**
