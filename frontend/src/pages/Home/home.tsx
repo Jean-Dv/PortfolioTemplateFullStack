@@ -53,7 +53,7 @@ export default function Home() {
             <Avatar />
           </div>
         </div>
-        <SocialMedia />
+        <SocialMedia social={CONFIG.social} />
       </section>
       <section className='projects__section'>
         <div className='projects__container'>

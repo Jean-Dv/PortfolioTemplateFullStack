@@ -1,10 +1,8 @@
-import CONFIG from '../../config/config.json'
 import './socialmedia.scss'
 import { Fade } from 'react-awesome-reveal'
+import { SocialMediaProps } from '../types'
 
-export default function SocialMedia() {
-  const { social } = CONFIG
-
+const SocialMedia: React.FC<SocialMediaProps> = ({ social }: SocialMediaProps) => {
   return (
     <Fade className='social__container'>
       <Fade cascade direction='right' damping={0.3}>
@@ -15,3 +13,5 @@ export default function SocialMedia() {
     </Fade>
   )
 }
+
+export default SocialMedia
