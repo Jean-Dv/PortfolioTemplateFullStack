@@ -5,6 +5,7 @@ import ProjectsList from '../../components/ProjectsList/projects-list'
 import { Fade } from 'react-awesome-reveal'
 import CONFIG from '../../config/config.json'
 import './home.scss'
+import SocialMedia from '../../components/SocialMedia/socialmedia'
 
 const Projects = [
   {
@@ -52,6 +53,7 @@ export default function Home() {
             <Avatar />
           </div>
         </div>
+        <SocialMedia />
       </section>
       <section className='projects__section'>
         <div className='projects__container'>
