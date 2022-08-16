@@ -25,9 +25,23 @@ svg {
   transition: fill 0.3s ease-in-out;
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 768px) {
+  svg {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
   svg {
     width: 600px;
     height: 600px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  svg {
+    width: 700px;
+    height: 700px;
   }
 }
