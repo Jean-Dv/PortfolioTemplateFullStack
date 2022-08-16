@@ -1,0 +1,123 @@
+@import '../../assets/styles/_vars.scss';
+
+.project__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+  padding: 25px;
+  transition: all 0.3s ease-in-out;
+  border: 2px solid $secondary;
+  border-radius: 10px;
+  background: rgba($secondary, 0.3);
+  box-shadow: 0 4px 15px 0 rgba($secondary, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  max-width: 1440px;
+
+  .name {
+    font-size: 2rem;
+    color: $primary;
+    margin: 10px 0 10px 0;
+  }
+
+  .statics {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 0 10px;
+    transition: all 0.3s ease-in-out;
+    gap: 20px;
+    margin-bottom: 10px;
+
+    span {
+      font-size: 1.25rem;
+      color: $primary;
+      font-weight: normal;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      i {
+        font-size: 1.25rem;
+        color: $secondary;
+        margin-right: 8px;
+      }
+    }
+  }
+
+  .language {
+    font-size: 1.25rem;
+    color: $primary;
+    font-weight: normal;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+
+    span {
+      &:nth-child(2) {
+        margin-left: 5px;
+        color: $secondary;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .description {
+    width: 100%;
+
+    p {
+      font-size: 1.25rem;
+      color: $primary;
+      font-weight: normal;
+    }
+  }
+}
+
+.darkMode {
+  .project__item {
+    border: 2px solid $secondary;
+    border-radius: 10px;
+    background: rgba($secondary, 0.15);
+    box-shadow: 0 4px 15px 0 rgba($secondary, 0.37);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    .name {
+      color: $primary-dark;
+    }
+
+    .statics {
+      span {
+        color: $primary-dark;
+
+        i {
+          color: $tertiary-dark;
+        }
+      }
+    }
+
+    .language {
+      color: $primary-dark;
+
+      span {
+        &:nth-child(2) {
+          color: $primary-dark;
+        }
+      }
+    }
+
+    .description {
+      p {
+        color: $primary-dark;
+      }
+    }
+  }
+}

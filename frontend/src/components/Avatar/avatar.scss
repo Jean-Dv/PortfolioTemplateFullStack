@@ -1,0 +1,47 @@
+@import '../../assets/styles/vars.scss';
+
+svg {
+  width: 700px;
+  height: 700px;
+}
+
+.darkMode {
+  .path__line {
+    fill: $secondary-dark;
+  }
+
+  .fill__background {
+    fill: $tertiary-dark;
+  }
+}
+
+.path__line {
+  fill: $secondary;
+  transition: fill 0.3s ease-in-out;
+}
+
+.fill__background {
+  fill: $tertiary;
+  transition: fill 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+  svg {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  svg {
+    width: 600px;
+    height: 600px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  svg {
+    width: 700px;
+    height: 700px;
+  }
+}

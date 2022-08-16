@@ -1,0 +1,14 @@
+.projects__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .projects__list {
+    width: 90%;
+    margin: 0 auto;
+  }
+}

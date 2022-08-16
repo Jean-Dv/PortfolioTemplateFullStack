@@ -1,13 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from 'react'
-
-interface ThemeProvider {
-  children: React.ReactNode
-}
-
-interface ThemeContext {
-  theme: string
-  UpdateTheme: (theme: string) => void
-}
+import { ThemeContextProps, ThemeProviderProps } from './contexts'
 
 const initialState = {
   theme: 'light',
@@ -16,9 +8,9 @@ const initialState = {
   },
 }
 
-const ThemeContext = createContext<ThemeContext>(initialState)
+const ThemeContext = createContext<ThemeContextProps>(initialState)
 
-const ThemeProvider: React.FC<ThemeProvider> = ({ children }) => {
+const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const [theme, setTheme] = useState<string>('light')
 
   useEffect(() => {
