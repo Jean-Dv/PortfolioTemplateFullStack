@@ -83,6 +83,10 @@
     transform: translateY(-50%);
     right: 0;
     margin-right: 80px;
+
+    &.spaced {
+      margin-right: 0px;
+    }
   }
 }
 
@@ -159,6 +163,10 @@
         .home__title {
           font-size: 80px;
         }
+      }
+
+      .avatar__container {
+        margin-right: 40px;
       }
     }
   }
