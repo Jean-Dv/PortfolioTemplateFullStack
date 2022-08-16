@@ -8,10 +8,28 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
+@import './vars.scss';
+
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
   font-family: Arial, Helvetica, sans-serif;
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $secondary;
+    border-radius: 5px;
+  }
+
+  scroll-behavior: smooth;
 }
 
 /* Sections
@@ -35,6 +53,12 @@ main {
 
 .App {
   padding: 20px 20px 0 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .App {
+    padding: 0px;
+  }
 }
 
 /**
