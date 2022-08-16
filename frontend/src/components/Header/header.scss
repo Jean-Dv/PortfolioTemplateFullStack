@@ -42,10 +42,6 @@
       height: 60px;
       cursor: pointer;
       transition: all 0.5s;
-
-      &.dark {
-        transform: rotate(180deg);
-      }
     }
 
     button {
@@ -77,11 +73,37 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 40px 0 0;
+    gap: 20px;
 
     .header__icon {
       width: 30px;
       height: 30px;
       transform: rotateY(180deg);
+      transition: all 0.5s;
+
+      &:hover {
+        transform: scale(0.9) rotateY(180deg);
+      }
+    }
+
+    .settings__buttons {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+      img {
+        cursor: pointer;
+        transform: rotateY(180deg);
+      }
+    }
+
+    .hireme__button {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
     }
 
     a {
@@ -96,6 +118,32 @@
 
       &:hover {
         transform: scale(1.1);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header__container {
+    width: 100%;
+    padding: 10px 0;
+
+    .left__content {
+      padding: 0 0 0 10px;
+
+      .header__logo {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    .right__content {
+      padding: 0 10px 0 0;
+      gap: 10px;
+
+      .header__icon {
+        width: 25px;
+        height: 25px;
       }
     }
   }
