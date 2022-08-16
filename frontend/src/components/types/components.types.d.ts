@@ -3,7 +3,7 @@ interface ProjectsListProps {
 }
 
 interface ProjectItemProps {
-  id: string,
+  id: string
   name: string
   description: string
   stars: integer
@@ -12,4 +12,13 @@ interface ProjectItemProps {
   url: string
 }
 
-export { ProjectsListProps, ProjectItemProps }
+interface SocialMediaProps {
+  social: SocialMediaItemProps[]
+}
+
+interface SocialMediaItemProps {
+  url: string
+  name: string
+}
+
+export { ProjectsListProps, ProjectItemProps, SocialMediaItemProps, SocialMediaProps }

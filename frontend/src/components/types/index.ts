@@ -1,3 +1,8 @@
-import { ProjectsListProps, ProjectItemProps } from './components.types'
+import {
+  ProjectsListProps,
+  ProjectItemProps,
+  SocialMediaProps,
+  SocialMediaItemProps,
+} from './components.types'
 
-export type { ProjectsListProps, ProjectItemProps }
+export type { ProjectsListProps, ProjectItemProps, SocialMediaProps, SocialMediaItemProps }
