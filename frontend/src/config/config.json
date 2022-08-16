@@ -1,0 +1,24 @@
+{
+  "useFullName": true,
+  "author": {
+    "firstName": "Esteban",
+    "lastName": "Estrada",
+    "carrer": "System Engineer",
+    "email": "davinsontc@outlook.com",
+    "location": "Colombia, Antioquia"
+  },
+  "social": [
+    {
+      "name": "Twitter",
+      "url": "https://twitter.com/codest_1x"
+    },
+    {
+      "name": "Linkeding",
+      "url": "https://www.linkedin.com/"
+    },
+    {
+      "name": "Github",
+      "url": "https://github.com/Codest-x"
+    }
+  ]
+}
