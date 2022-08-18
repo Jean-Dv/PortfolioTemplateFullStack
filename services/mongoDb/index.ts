@@ -14,7 +14,7 @@ export class MongoService {
   private static _instance: MongoService
 
   private constructor () {
-
+    this.config()
   }
 
   static get instance (): MongoService {
@@ -40,8 +40,8 @@ export class MongoService {
         production: ConfigEnv.MONGO_URI
       }
       return options[ConfigEnv.NODE_ENV]
-    } catch (error: any) {
-      this.logger.error(error)
+    } catch (err) {
+      this.logger.error(err)
       throw new Error('🔴 Error getting uris...')
     }
   }
@@ -52,9 +52,9 @@ export class MongoService {
       if (ConfigEnv.NODE_ENV !== 'test') {
         this.logger.info(`🟢 MongoDB successfully connected to ${connection.connection.host}:${connection.connection.port}`)
       }
-    } catch (error: any) {
+    } catch (err) {
       if (ConfigEnv.NODE_ENV !== 'test') {
-        this.logger.error(error)
+        this.logger.error(err)
       }
       throw new Error('🔴 Error initializing database...')
     }
