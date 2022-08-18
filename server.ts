@@ -2,6 +2,8 @@ import express, { Application } from 'express'
 import cors from 'cors'
 import log4js, { Log4js, Logger } from 'log4js'
 
+import ConfigEnv from './config/config.env'
+
 export class Server {
   public logger!: Logger
 
@@ -31,7 +33,7 @@ export class Server {
   }
 
   private config (): void {
-    this.port = process.env.PORT ?? 8080
+    this.port = ConfigEnv.PORT ?? 8080
     this.log = log4js
     this.log.configure('./config/log4js.json')
     this.logger = this.log.getLogger('server')
