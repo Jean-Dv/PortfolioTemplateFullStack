@@ -15,7 +15,7 @@ const getConfig = (): ENV => {
 const getSanitizedConfig = (config: ENV): SanitizedENV => {
   for (const [key, value] of Object.entries(config)) {
     if (value === undefined) {
-      throw new Error(`Missing key ${key} in .env`)
+      throw new Error(`Missing key ${key} in .env.${process.env.NODE_ENV as string}.local`)
     }
   }
   return config as SanitizedENV
