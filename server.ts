@@ -2,6 +2,7 @@ import express, { Application } from 'express'
 import cors from 'cors'
 import log4js, { Log4js, Logger } from 'log4js'
 
+import { MongoService } from './services/mongoDb'
 import ConfigEnv from './config/config.env'
 
 export class Server {
@@ -13,15 +14,20 @@ export class Server {
   private port!: string | number
   private log!: Log4js
   private listen!: any
+  private readonly mongoService: MongoService
 
   private static _instance: Server
 
   private constructor () {
+    this.mongoService = MongoService.instance
     this.app = express()
     this.routePrefix = '/api/v1'
     this.config()
     this.middlewares()
     this.routes()
+    void this.mongoService.getUri().then((res) => {
+      void this.databaseConnection(res)
+    })
   }
 
   static get instance (): Server {
@@ -46,6 +52,10 @@ export class Server {
   }
 
   private routes (): void {
+  }
+
+  private async databaseConnection (uri: string): Promise<void> {
+    return await this.mongoService.connect(uri)
   }
 
   start (): void {
