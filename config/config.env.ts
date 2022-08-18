@@ -8,7 +8,8 @@ dotenv.config({ path: path.resolve(__dirname, `../.env.${process.env.NODE_ENV ??
 const getConfig = (): ENV => {
   return {
     NODE_ENV: process.env.NODE_ENV,
-    PORT: (process.env.PORT !== undefined) ? Number(process.env.PORT) : undefined
+    PORT: (process.env.PORT !== undefined) ? Number(process.env.PORT) : undefined,
+    MONGO_URI: process.env.MONGO_URI
   }
 }
 
