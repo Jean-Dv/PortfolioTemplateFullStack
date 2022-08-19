@@ -7,6 +7,19 @@ import { AuthHttpHandler } from './http'
 export const authRouter = Router()
 const authHttpHandler = AuthHttpHandler.instance
 
+authRouter.route('/login')
+  .post([
+    check('email')
+      .notEmpty()
+      .withMessage('The email address is required')
+      .isEmail()
+      .withMessage('Please enter a valid email'),
+    check('password')
+      .notEmpty()
+      .withMessage('Password is required'),
+    validateFields
+  ], authHttpHandler.signIn)
+
 authRouter.route('/register')
   .post([
     check('firstName')
