@@ -2,13 +2,10 @@ import { Request, Response } from 'express'
 
 import { AuthController } from './controller'
 
-export class AuthHttpHandler {
-  private readonly authController: AuthController
-  private static _instance: AuthHttpHandler
+const authController = AuthController.instance
 
-  private constructor () {
-    this.authController = AuthController.instance
-  }
+export class AuthHttpHandler {
+  private static _instance: AuthHttpHandler
 
   static get instance (): AuthHttpHandler {
     if (this._instance instanceof AuthHttpHandler) {
@@ -21,7 +18,7 @@ export class AuthHttpHandler {
   async signUp (req: Request, res: Response): Promise<Response> {
     try {
       const { firstName, lastName, email, password } = req.body
-      const newUser = await this.authController.signUp({ firstName, lastName, email, password })
+      const newUser = await authController.signUp({ firstName, lastName, email, password })
       if (newUser === false) {
         return res.status(400).json({
           ok: false,
