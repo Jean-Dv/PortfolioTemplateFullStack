@@ -59,4 +59,12 @@ export class MongoService {
       throw new Error('🔴 Error initializing database...')
     }
   }
+
+  async disconnect (): Promise<void> {
+    if (ConfigEnv.NODE_ENV === 'test') {
+      await mongoose.connection.dropDatabase()
+      await mongoose.connection.close()
+      await this.mongoMemoryServer.stop
+    }
+  }
 }
