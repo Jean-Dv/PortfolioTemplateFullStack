@@ -34,7 +34,7 @@ userSchema.pre<IUser>('save', async function (next): Promise<void> {
   const hash = await bcrypt.hash(this.password, salt)
   this.password = hash
 
-  next()
+  return next()
 })
 
 userSchema.methods.comparePassword = async function (password: string): Promise<Boolean> {
