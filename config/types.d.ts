@@ -3,6 +3,7 @@ export interface ENV {
   PORT: number | undefined
   MONGO_URI: string | undefined
   SALTROUNDS: number | undefined
+  SECRETKEY: string | undefined
 }
 
 export interface SanitizedENV {
@@ -10,4 +11,5 @@ export interface SanitizedENV {
   PORT: number
   MONGO_URI: string
   SALTROUNDS: number
+  SECRETKEY: string
 }
