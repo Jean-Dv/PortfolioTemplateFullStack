@@ -10,7 +10,8 @@ const getConfig = (): ENV => {
     NODE_ENV: process.env.NODE_ENV,
     PORT: (process.env.PORT !== undefined) ? Number(process.env.PORT) : undefined,
     MONGO_URI: process.env.MONGO_URI,
-    SALTROUNDS: Number(process.env.SALTROUNDS)
+    SALTROUNDS: Number(process.env.SALTROUNDS),
+    SECRETKEY: process.env.SECRETKEY
   }
 }
 
