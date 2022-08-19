@@ -100,7 +100,6 @@
     "typeRoots": ["./global.d.ts", "./node_modules/@types"],
   },
   "exclude": [
-    "./frontend",
-    "./__tests__/"
+    "./frontend"
   ]
 }

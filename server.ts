@@ -2,8 +2,10 @@ import express, { Application } from 'express'
 import cors from 'cors'
 import log4js, { Log4js, Logger } from 'log4js'
 
-import { MongoService } from './services/mongoDb'
 import ConfigEnv from './config/config.env'
+import { MongoService } from './services/mongoDb'
+
+import { authRouter } from './api/auth/router'
 
 export class Server {
   public logger!: Logger
@@ -52,6 +54,7 @@ export class Server {
   }
 
   private routes (): void {
+    this.app.use(`${this.routePrefix}/auth`, authRouter)
   }
 
   private async databaseConnection (uri: string): Promise<void> {
