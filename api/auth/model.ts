@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt'
 import { model, Schema } from 'mongoose'
 
 import ConfigEnv from '../../config/config.env'
-import { IUser } from './types'
+import { IUser, UserSchema } from './types'
 
 const userSchema = new Schema({
   firstName: {
@@ -41,4 +41,4 @@ userSchema.methods.comparePassword = async function (password: string): Promise<
   return await bcrypt.compare(password, this.password)
 }
 
-export default model<IUser>('User', userSchema)
+export default model<UserSchema>('User', userSchema)
