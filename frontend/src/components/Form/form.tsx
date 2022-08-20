@@ -3,11 +3,24 @@ import Tilt from 'react-parallax-tilt'
 import { Fade } from 'react-awesome-reveal'
 
 import './form.scss'
+import { useForm } from './hooks/useForm'
+
+const INITIAL_STATE = {
+  fullname: '',
+  email: '',
+  message: '',
+}
 
 const Form = () => {
+  const submitMessage = () => {
+    console.log(values)
+  }
+
+  const { onChange, onSubmit, values } = useForm(submitMessage, INITIAL_STATE)
+
   return (
     <Fade>
-      <form className='form__container'>
+      <form className='form__container' onSubmit={onSubmit}>
         <div className='form__info'>
           <Input
             type='text'
@@ -15,6 +28,8 @@ const Form = () => {
             placeholder='Insert Your FullName'
             label='Full Name'
             required={true}
+            value={values.fullname}
+            onChange={onChange}
           />
           <Input
             type='email'
@@ -22,11 +37,13 @@ const Form = () => {
             placeholder='Insert Your Email'
             label='Email'
             required={true}
+            value={values.email}
+            onChange={onChange}
           />
         </div>
         <div className='form__message'>
           <label>Message</label>
-          <span>Words: 0/300</span>
+          <span>{`Words: ${values.message.length}/300`}</span>
           <Tilt perspective={1500} tiltMaxAngleX={5} tiltMaxAngleY={5}>
             <textarea
               name='message'
@@ -34,6 +51,8 @@ const Form = () => {
               required
               minLength={20}
               maxLength={300}
+              value={values.message}
+              onChange={onChange}
             />
           </Tilt>
         </div>

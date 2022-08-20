@@ -4,6 +4,7 @@ import {
   SocialMediaProps,
   SocialMediaItemProps,
   InputProps,
+  FormDataProps,
 } from './components.types'
 
 export type {
@@ -12,4 +13,5 @@ export type {
   SocialMediaProps,
   SocialMediaItemProps,
   InputProps,
+  FormDataProps,
 }
