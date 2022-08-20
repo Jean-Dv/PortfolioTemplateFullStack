@@ -4,6 +4,11 @@ export interface ENV {
   MONGO_URI: string | undefined
   SALTROUNDS: number | undefined
   SECRETKEY: string | undefined
+  MAIL_HOST: string | undefined
+  MAIL_PORT: number | undefined
+  GOOGLE_CLIENT_ID: string | undefined
+  GOOGLE_CLIENT_SECRET: string | undefined
+  GOOGLE_REFRESH_TOKEN: string | undefined
 }
 
 export interface SanitizedENV {
@@ -12,4 +17,9 @@ export interface SanitizedENV {
   MONGO_URI: string
   SALTROUNDS: number
   SECRETKEY: string
+  MAIL_HOST: string
+  MAIL_PORT: number
+  GOOGLE_CLIENT_ID: string
+  GOOGLE_CLIENT_SECRET: string
+  GOOGLE_REFRESH_TOKEN: string
 }
