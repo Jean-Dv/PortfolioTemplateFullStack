@@ -13,6 +13,9 @@
 
       div {
         textarea {
+
+          color: white;
+
           &::placeholder {
             color: rgba($primary-dark, 0.8);
           }
