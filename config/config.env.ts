@@ -11,7 +11,12 @@ const getConfig = (): ENV => {
     PORT: (process.env.PORT !== undefined) ? Number(process.env.PORT) : undefined,
     MONGO_URI: process.env.MONGO_URI,
     SALTROUNDS: Number(process.env.SALTROUNDS),
-    SECRETKEY: process.env.SECRETKEY
+    SECRETKEY: process.env.SECRETKEY,
+    MAIL_HOST: process.env.MAIL_HOST,
+    MAIL_PORT: Number(process.env.MAIL_PORT),
+    GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
+    GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
+    GOOGLE_REFRESH_TOKEN: process.env.GOOGLE_REFRESH_TOKEN
   }
 }
 
