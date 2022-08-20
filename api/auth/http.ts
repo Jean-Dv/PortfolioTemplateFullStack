@@ -47,16 +47,9 @@ export class AuthHttpHandler {
   async signIn (req: Request, res: Response): Promise<Response> {
     try {
       const { email, password } = req.body
-      const user = await UserSchema.findOne({ email })
-      if (user === null || user === undefined) {
-        return res.status(404).json({
-          ok: false,
-          data: {
-            error: `Can't find user with the email '${email as string}'`
-          }
-        })
-      }
-      const isMatch = await user.comparePassword(password)
+      const _id = await authController.getUserId(email)
+      const user = await UserSchema.findOne({ email }).exec()
+      const isMatch = await user?.comparePassword(password)
       if (isMatch === false) {
         return res.status(400).json({
           ok: false,
@@ -65,8 +58,18 @@ export class AuthHttpHandler {
           }
         })
       }
-      const token = sign({ _id: user._id }, ConfigEnv.SECRETKEY, { expiresIn: '8h' })
-      await UserSchema.updateOne({ _id: user._id }, { $set: { token } }, { upsert: true }).exec()
+      const { token } = await authController.getUserFromEmail(email)
+      const isExpired = authController.isExpiredToken(token)
+      if (isExpired) {
+        const tokenCreate = sign({ _id }, ConfigEnv.SECRETKEY, { expiresIn: '8h' })
+        await UserSchema.updateOne({ _id }, { $set: { token } }, { upsert: true }).exec()
+        return res.status(200).json({
+          ok: true,
+          data: {
+            token: tokenCreate
+          }
+        })
+      }
       return res.status(200).json({
         ok: true,
         data: {
