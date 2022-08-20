@@ -142,6 +142,25 @@
   }
 }
 
+/* Contact Section */
+
+.darkMode {
+  .contact__section {
+    background-color: $background-dark;
+  }
+}
+
+.contact__section {
+  width: calc(100vw - 40px);
+  background-color: $background;
+  padding: 40px 0;
+  transition: $transition-background;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 @media screen and (max-width: 1920px) {
   .home__section {
     .home__container {

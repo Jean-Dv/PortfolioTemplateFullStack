@@ -21,4 +21,12 @@ interface SocialMediaItemProps {
   name: string
 }
 
-export { ProjectsListProps, ProjectItemProps, SocialMediaItemProps, SocialMediaProps }
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  name: string
+  label: string
+  type: string
+  placeholder: string
+  required?: boolean
+}
+
+export { ProjectsListProps, ProjectItemProps, SocialMediaItemProps, SocialMediaProps, InputProps }

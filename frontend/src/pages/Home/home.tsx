@@ -6,6 +6,7 @@ import { Fade } from 'react-awesome-reveal'
 import CONFIG from '../../config/config.json'
 import './home.scss'
 import SocialMedia from '../../components/SocialMedia/socialmedia'
+import Form from '../../components/Form/form'
 
 const Projects = [
   {
@@ -65,6 +66,9 @@ export default function Home() {
           </Fade>
           <ProjectsList projects={Projects} />
         </div>
+      </section>
+      <section className="contact__section">
+        <Form />
       </section>
     </>
   )
