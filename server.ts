@@ -6,6 +6,7 @@ import ConfigEnv from './config/config.env'
 import { MongoService } from './services/mongoDb'
 
 import { authRouter } from './api/auth/router'
+import { mailRouter } from './api/mailer/router'
 
 export class Server {
   public logger!: Logger
@@ -55,6 +56,7 @@ export class Server {
 
   private routes (): void {
     this.app.use(`${this.routePrefix}/auth`, authRouter)
+    this.app.use(`${this.routePrefix}/mail`, mailRouter)
   }
 
   private async databaseConnection (uri: string): Promise<void> {
