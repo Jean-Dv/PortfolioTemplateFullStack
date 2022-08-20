@@ -1,3 +1,5 @@
+import { InputHTMLAttributes } from 'react'
+
 interface ProjectsListProps {
   projects: ProjectItemProps[]
 }
@@ -24,9 +26,19 @@ interface SocialMediaItemProps {
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string
   label: string
-  type: string
-  placeholder: string
-  required?: boolean
 }
 
-export { ProjectsListProps, ProjectItemProps, SocialMediaItemProps, SocialMediaProps, InputProps }
+interface FormDataProps {
+  fullname: string
+  email: string
+  message: string
+}
+
+export {
+  ProjectsListProps,
+  ProjectItemProps,
+  SocialMediaItemProps,
+  SocialMediaProps,
+  InputProps,
+  FormDataProps,
+}
