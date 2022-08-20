@@ -9,6 +9,7 @@ describe('MAILS SEND (SUCCESS)', () => {
       .set('Accept', 'application/json')
       .send({
         from: 'admin@admin.com',
+        fullname: 'Jean Carlos Valencia Barajas',
         subject: 'New Application into backend',
         text: 'We require your knowledge in the backend to create a streaming application'
       })

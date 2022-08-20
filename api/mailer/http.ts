@@ -17,8 +17,8 @@ export class MailHttpHandler {
 
   async newMail (req: Request, res: Response): Promise<Response> {
     try {
-      const { from, subject, text } = req.body
-      const info = await mailController.sendMail({ from, subject, text })
+      const { from, fullname, subject, text } = req.body
+      const info = await mailController.sendMail({ from, fullname, subject, text })
       return res.status(200).json({
         ok: true,
         data: {

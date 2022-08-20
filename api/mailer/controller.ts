@@ -38,11 +38,12 @@ export class MailController {
 
   async sendMail (propsMail: IMail): Promise<any> {
     try {
-      const { from, subject, text } = propsMail
+      const { from, fullname, subject, text } = propsMail
       const info = await this.main().sendMail({
         to: 'mrjunior127@gmail.com',
         subject: subject,
         html: `<strong>Correo del usuario: </strong> ${from} <br>
+              <strong>Nombre completo del usuario: </strong> ${fullname} <br>
                 <strong>Mensaje: </strong> ${text}`
       })
       return info
