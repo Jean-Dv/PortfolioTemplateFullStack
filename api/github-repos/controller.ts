@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+import ConfigEnv from '../../config/config.env'
 import RepositorySchema from './model'
 import { CodeError } from '../exception'
 
@@ -28,10 +29,10 @@ export class RepositoryController {
       const data: any[] = []
       const options = {
         method: 'GET',
-        url: 'https://api.github.com/user/repos',
+        url: ConfigEnv.GITHUB_API_URL,
         headers: {
           'Content-Type': 'application/json',
-          Authorization: 'token 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'
+          Authorization: `token ${ConfigEnv.GITHUB_API_TOKEN}`
         }
       }
       const response = await axios.request(options)

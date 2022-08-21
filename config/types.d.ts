@@ -9,6 +9,8 @@ export interface ENV {
   GOOGLE_CLIENT_ID: string | undefined
   GOOGLE_CLIENT_SECRET: string | undefined
   GOOGLE_REFRESH_TOKEN: string | undefined
+  GITHUB_API_URL: string | undefined
+  GITHUB_API_TOKEN: string | undefined
 }
 
 export interface SanitizedENV {
@@ -22,4 +24,6 @@ export interface SanitizedENV {
   GOOGLE_CLIENT_ID: string
   GOOGLE_CLIENT_SECRET: string
   GOOGLE_REFRESH_TOKEN: string
+  GITHUB_API_URL: string
+  GITHUB_API_TOKEN: string
 }
