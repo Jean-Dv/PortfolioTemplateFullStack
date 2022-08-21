@@ -19,7 +19,7 @@ const Form = () => {
   const { onChange, onSubmit, values } = useForm(submitMessage, INITIAL_STATE)
 
   return (
-    <Fade>
+    <Fade className='fade__container'>
       <form className='form__container' onSubmit={onSubmit}>
         <div className='form__info'>
           <Input
