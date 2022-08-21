@@ -50,3 +50,13 @@
     text-shadow: -5px 0 $secondary, 5px -4px $tertiary;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .social__container {
+    position: relative;
+    flex-direction: row;
+    right: 0;
+    width: 100%;
+    margin-top: 20px;
+  }
+}
