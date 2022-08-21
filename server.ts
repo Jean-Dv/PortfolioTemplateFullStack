@@ -7,6 +7,7 @@ import { MongoService } from './services/mongoDb'
 
 import { authRouter } from './api/auth/router'
 import { mailRouter } from './api/mailer/router'
+import { repositoryRouter } from './api/github-repos/router'
 
 export class Server {
   public logger!: Logger
@@ -28,8 +29,8 @@ export class Server {
     this.config()
     this.middlewares()
     this.routes()
-    void this.mongoService.getUri().then((res) => {
-      void this.databaseConnection(res)
+    void this.mongoService.getUri().then(async (res) => {
+      void await this.databaseConnection(res)
     })
   }
 
@@ -57,6 +58,7 @@ export class Server {
   private routes (): void {
     this.app.use(`${this.routePrefix}/auth`, authRouter)
     this.app.use(`${this.routePrefix}/mail`, mailRouter)
+    this.app.use(`${this.routePrefix}/github`, repositoryRouter)
   }
 
   private async databaseConnection (uri: string): Promise<void> {
