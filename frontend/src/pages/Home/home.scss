@@ -147,6 +147,10 @@
 .darkMode {
   .contact__section {
     background-color: $background-dark;
+
+    h1 {
+      color: $primary-dark;
+    }
   }
 }
 
@@ -159,6 +163,31 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  h1 {
+    color: $primary;
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 50px 0px;
+    position: relative;
+
+    &:before {
+      content: '';
+      width: 0;
+      height: 5px;
+      bottom: -5px;
+      right: 0;
+      background-color: $secondary;
+      position: absolute;
+      transition: all 0.5s;
+    }
+
+    &:hover::before {
+      left: 0;
+      width: 100%;
+      right: auto;
+    }
+  }
 }
 
 @media screen and (max-width: 1920px) {
@@ -249,6 +278,15 @@
           font-size: 50px;
         }
       }
+    }
+  }
+
+  .contact__section {
+    width: 100%;
+
+    h1 {
+      font-size: 2rem;
+      margin: 20px 0;
     }
   }
 }
