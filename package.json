@@ -9,7 +9,8 @@
     "start": "NODE_ENV=production node build/bin/www.js",
     "build": "NODE_ENV=production npx tsc",
     "test": "NODE_ENV=test npx jest --verbose",
-    "test:watch": "NODE_ENV=test npm run test -- --watchAll"
+    "test:watch": "NODE_ENV=test npm run test -- --watchAll",
+    "update:repos": "NODE_ENV=development ts-node-dev bin/github-refresh.ts"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/Jean-Dv/PortfolioTemplateFullStack#readme",
   "dependencies": {
+    "axios": "0.27.2",
     "bcrypt": "5.0.1",
     "cors": "2.8.5",
     "dotenv": "16.0.1",
