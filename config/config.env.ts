@@ -16,7 +16,9 @@ const getConfig = (): ENV => {
     MAIL_PORT: Number(process.env.MAIL_PORT),
     GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
     GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
-    GOOGLE_REFRESH_TOKEN: process.env.GOOGLE_REFRESH_TOKEN
+    GOOGLE_REFRESH_TOKEN: process.env.GOOGLE_REFRESH_TOKEN,
+    GITHUB_API_URL: process.env.GITHUB_API_URL,
+    GITHUB_API_TOKEN: process.env.GITHUB_API_TOKEN
   }
 }
 
