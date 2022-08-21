@@ -3,9 +3,11 @@ import request from 'supertest'
 import { appServer, routePrefix } from '../../bin/www'
 import { RepositoryController } from '../../api/github-repos/controller'
 
+jest.setTimeout(20000)
+
 beforeAll(async () => {
   const repositoryController = RepositoryController.instance
-  await repositoryController.saveRepositories()
+  void await repositoryController.saveRepositories()
 })
 
 describe('FETCH REPOSITORIES FROM GITHUB (SUCCESS)', () => {
