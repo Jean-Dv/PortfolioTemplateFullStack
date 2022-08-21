@@ -54,7 +54,6 @@ export default function Home() {
             <Avatar />
           </div>
         </div>
-        <SocialMedia social={CONFIG.social} />
       </section>
       <section className='projects__section'>
         <div className='projects__container'>
@@ -67,9 +66,11 @@ export default function Home() {
           <ProjectsList projects={Projects} />
         </div>
       </section>
-      <section className="contact__section">
+      <section className='contact__section'>
+        <h1>Let&apos;s Work Together</h1>
         <Form />
       </section>
+      <SocialMedia social={CONFIG.social} />
     </>
   )
 }

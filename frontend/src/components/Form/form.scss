@@ -13,7 +13,6 @@
 
       div {
         textarea {
-
           color: white;
 
           &::placeholder {
@@ -117,5 +116,20 @@
       color: $primary;
       transform: translateY(-5px);
     }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .form__container {
+    width: 90%;
+    padding: 20px;
+
+    .form__info {
+      flex-direction: column;
+    }
+  }
+
+  .fade__container {
+    width: 90%;
   }
 }
