@@ -1,16 +1,20 @@
 #!/usr/bin/env node
+import { Logger } from 'log4js'
+
 import { Server } from '../server'
 import { RepositoryController } from '../api/github-repos/controller'
 
-async function saveDatabaseRepositories (): Promise<void> {
+async function saveDatabaseRepositories (logger: Logger): Promise<void> {
   try {
     const repositoryController = RepositoryController.instance
     await repositoryController.saveRepositories()
-    console.log('UPDATE ALL REPOSITORIES')
+    logger.info('UPDATE ALL REPOSITORIES')
   } catch (error: any) {
-    console.log(error)
+    logger.error(error)
   }
 }
 // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-Server.instance
-void saveDatabaseRepositories()
+void Server.instance.then((server) => {
+  const logger = server.logger
+  void saveDatabaseRepositories(logger)
+})
