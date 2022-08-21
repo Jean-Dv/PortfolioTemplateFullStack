@@ -67,7 +67,9 @@ export default function Home() {
         </div>
       </section>
       <section className='contact__section'>
-        <h1>Let&apos;s Work Together</h1>
+        <Fade direction='left'>
+          <h1>Let&apos;s Work Together</h1>
+        </Fade>
         <Form />
       </section>
       <SocialMedia social={CONFIG.social} />
