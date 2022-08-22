@@ -1,0 +1,62 @@
+@import '../../assets/styles/vars';
+
+.darkMode {
+  .social__container {
+    .icon-3d {
+      color: $primary-dark;
+    }
+  }
+}
+
+.social__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999;
+
+  .icon-3d {
+    padding: 10px;
+    -webkit-animation: icon3d 200ms 10;
+    font-size: 40px;
+    animation: icon3d 200ms 5;
+    color: $primary;
+
+    &:hover {
+      -webkit-animation: icon3d 200ms infinite;
+      animation: icon3d 200ms infinite;
+    }
+  }
+}
+
+@keyframes icon3d {
+  0% {
+    text-shadow: 5px 4px $secondary, -5px -6px $tertiary;
+  }
+  25% {
+    text-shadow: -5px -6px $secondary, 5px 4px $tertiary;
+  }
+  50% {
+    text-shadow: 5px -4px $secondary, -8px 4px $tertiary;
+  }
+  75% {
+    text-shadow: -8px -4px $secondary, -5px -4px $tertiary;
+  }
+  100% {
+    text-shadow: -5px 0 $secondary, 5px -4px $tertiary;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .social__container {
+    position: relative;
+    flex-direction: row;
+    right: 0;
+    width: 100%;
+    margin-top: 20px;
+  }
+}

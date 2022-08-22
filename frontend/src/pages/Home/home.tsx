@@ -3,7 +3,10 @@ import Header from '../../components/Header/header'
 import Avatar from '../../components/Avatar/avatar'
 import ProjectsList from '../../components/ProjectsList/projects-list'
 import { Fade } from 'react-awesome-reveal'
+import CONFIG from '../../config/config.json'
 import './home.scss'
+import SocialMedia from '../../components/SocialMedia/socialmedia'
+import Form from '../../components/Form/form'
 
 const Projects = [
   {
@@ -29,6 +32,8 @@ const Projects = [
 ]
 
 export default function Home() {
+  const { firstName, lastName, carrer, location } = CONFIG.author
+
   return (
     <>
       <section className='home__section'>
@@ -37,15 +42,15 @@ export default function Home() {
           <div className='title__container'>
             <Fade direction='left' cascade={true} damping={0.3}>
               <h1 className='home__title'>
-                Hi, my
-                <br /> name is <b>Name</b>
+                Hi, my name is <br />
+                <b>{CONFIG.useFullName ? `${firstName} ${lastName}` : firstName}</b>
               </h1>
               <span className='home__description'>
-                Im an <b>Professional Carrer</b> from <br /> Location you are
+                Im an <b>{carrer}</b> from <br /> {location}
               </span>
             </Fade>
           </div>
-          <div className='avatar__container'>
+          <div className={CONFIG.useFullName ? 'avatar__container spaced' : 'avatar__container'}>
             <Avatar />
           </div>
         </div>
@@ -61,6 +66,13 @@ export default function Home() {
           <ProjectsList projects={Projects} />
         </div>
       </section>
+      <section className='contact__section'>
+        <Fade direction='left'>
+          <h1>Let&apos;s Work Together</h1>
+        </Fade>
+        <Form />
+      </section>
+      <SocialMedia social={CONFIG.social} />
     </>
   )
 }

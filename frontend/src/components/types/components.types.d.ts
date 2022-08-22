@@ -1,9 +1,11 @@
+import { InputHTMLAttributes } from 'react'
+
 interface ProjectsListProps {
   projects: ProjectItemProps[]
 }
 
 interface ProjectItemProps {
-  id: string,
+  id: string
   name: string
   description: string
   stars: integer
@@ -12,4 +14,31 @@ interface ProjectItemProps {
   url: string
 }
 
-export { ProjectsListProps, ProjectItemProps }
+interface SocialMediaProps {
+  social: SocialMediaItemProps[]
+}
+
+interface SocialMediaItemProps {
+  url: string
+  name: string
+}
+
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  name: string
+  label: string
+}
+
+interface FormDataProps {
+  fullname: string
+  email: string
+  message: string
+}
+
+export {
+  ProjectsListProps,
+  ProjectItemProps,
+  SocialMediaItemProps,
+  SocialMediaProps,
+  InputProps,
+  FormDataProps,
+}

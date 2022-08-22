@@ -1,0 +1,59 @@
+@import '../../assets/styles/vars';
+
+.darkMode {
+  .input__container {
+    .input__label {
+      color: $primary-dark;
+    }
+
+    .input {
+      color: white;
+      &::placeholder {
+        color: rgba($primary-dark, 0.8);
+      }
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus {
+      -webkit-text-fill-color: white;
+    }
+  }
+}
+
+.input__container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+
+  .input__label {
+    font-size: 20px;
+    font-weight: bold;
+    color: $primary;
+    letter-spacing: 2px;
+    margin: 0;
+  }
+
+  .input {
+    width: calc(100% - 10px);
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 2px solid $secondary;
+    background-color: rgba(255, 255, 255, 0.18);
+    padding: 0 0 0 10px;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    border: 2px solid $secondary;
+    -webkit-text-fill-color: black;
+    -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.18) inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
