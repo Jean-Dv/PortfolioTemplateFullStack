@@ -5,7 +5,8 @@
     "lastName": "Estrada",
     "carrer": "System Engineer",
     "email": "davinsontc@outlook.com",
-    "location": "Colombia, Antioquia"
+    "location": "Colombia, Antioquia",
+    "cvURL": "https://codestapi.herokuapp.com/assets/EstebanEstradaCV.pdf"
   },
   "social": [
     {
