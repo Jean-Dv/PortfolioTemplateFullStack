@@ -34,12 +34,14 @@ export class Server {
     })
   }
 
-  static get instance (): Server {
-    if (this._instance instanceof Server) {
-      return this._instance
-    }
-    this._instance = new Server()
-    return this._instance
+  static get instance (): Promise<Server> {
+    return new Promise((resolve) => {
+      if (this._instance instanceof Server) {
+        resolve(this._instance)
+      }
+      this._instance = new Server()
+      resolve(this._instance)
+    })
   }
 
   private config (): void {

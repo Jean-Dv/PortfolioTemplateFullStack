@@ -3,6 +3,7 @@ import axios from 'axios'
 import ConfigEnv from '../../config/config.env'
 import RepositorySchema from './model'
 import { CodeError } from '../exception'
+import { NewRepository } from './types'
 
 export class RepositoryController {
   private static _instance: RepositoryController
@@ -24,34 +25,32 @@ export class RepositoryController {
     }
   }
 
-  async fetchAllRepositories (): Promise<any[]> {
+  async fetchAllRepositories (): Promise<NewRepository[]> {
     try {
-      const data: any[] = []
       const options = {
         method: 'GET',
-        url: ConfigEnv.GITHUB_API_URL,
+        url: `${ConfigEnv.GITHUB_API_URL}/user/repos`,
         headers: {
           'Content-Type': 'application/json',
           Authorization: `token ${ConfigEnv.GITHUB_API_TOKEN}`
         }
       }
       const response = await axios.request(options)
-      response.data.forEach((currentValue: any) => {
-        const { visibility } = currentValue
-        if (visibility === 'public') {
-          // eslint-disable-next-line @typescript-eslint/naming-convention
-          const { id, name, html_url, description, stargazers_count, forks } = currentValue
-          data.push({
-            github_id: id,
-            url: html_url,
-            name: name,
-            description: description !== null ? description : '',
-            stars: stargazers_count,
-            forks: forks
-          })
+      const repositoriesPublics = response.data.filter((repository: any) => repository.visibility === 'public')
+      const dataRepositories: NewRepository[] = repositoriesPublics.map(function (currentValue: any): NewRepository {
+        // eslint-disable-next-line @typescript-eslint/naming-convention
+        const { id, name, html_url, description, stargazers_count, forks, language } = currentValue
+        return {
+          github_id: id,
+          url: html_url,
+          name: name,
+          description: description !== null ? description : '',
+          stars: stargazers_count,
+          language: language !== null ? language : '',
+          forks: forks
         }
       })
-      return data
+      return dataRepositories
     } catch (error: any) {
       throw new CodeError(error)
     }
@@ -60,19 +59,8 @@ export class RepositoryController {
   async saveRepositories (): Promise<void> {
     try {
       const repositoriesGithub = await this.fetchAllRepositories()
-      // eslint-disable-next-line @typescript-eslint/no-misused-promises
-      repositoriesGithub.forEach(async (currentValue): Promise<void> => {
-        await RepositorySchema.findOneAndDelete({ github_id: currentValue.github_id })
-        const newRepository = new RepositorySchema({
-          github_id: currentValue.github_id,
-          url: currentValue.url,
-          name: currentValue.name,
-          description: currentValue.description,
-          stars: currentValue.stars,
-          forks: currentValue.forks
-        })
-        await newRepository.save()
-      })
+      await RepositorySchema.deleteMany({})
+      await RepositorySchema.insertMany(repositoriesGithub)
     } catch (error: any) {
       throw new CodeError(error)
     }
