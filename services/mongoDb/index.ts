@@ -1,5 +1,4 @@
 import mongoose from 'mongoose'
-import { MongoMemoryServer } from 'mongodb-memory-server'
 import log4js, { Log4js, Logger } from 'log4js'
 
 import { OptionsUris } from '../types'
@@ -33,7 +32,10 @@ export class MongoService {
 
   async getUri (): Promise<string> {
     try {
+      if (ConfigEnv.NODE_ENV === 'test') {
+      import { MongoMemoryServer } from 'mongodb-memory-server'
       this.mongoMemoryServer = await MongoMemoryServer.create()
+      }
       const options: OptionsUris = {
         test: this.mongoMemoryServer.getUri(),
         development: ConfigEnv.MONGO_URI,
