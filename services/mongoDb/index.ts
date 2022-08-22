@@ -1,6 +1,5 @@
 import mongoose from 'mongoose'
 import log4js, { Log4js, Logger } from 'log4js'
-import { MongoMemoryServer } from 'mongodb-memory-server'
 
 import { OptionsUris } from '../types'
 import ConfigEnv from '../../config/config.env'
@@ -33,9 +32,7 @@ export class MongoService {
 
   async getUri (): Promise<string> {
     try {
-      this.mongoMemoryServer = await MongoMemoryServer.create()
       const options: OptionsUris = {
-        test: this.mongoMemoryServer.getUri(),
         development: ConfigEnv.MONGO_URI,
         production: ConfigEnv.MONGO_URI
       }
@@ -64,7 +61,6 @@ export class MongoService {
     if (ConfigEnv.NODE_ENV === 'test') {
       await mongoose.connection.dropDatabase()
       await mongoose.connection.close()
-      await this.mongoMemoryServer.stop
     }
   }
 }
