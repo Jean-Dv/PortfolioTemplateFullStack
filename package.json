@@ -31,7 +31,7 @@
     "express-validator": "6.14.2",
     "log4js": "6.6.1",
     "mongoose": "6.5.2",
-    "nodemailer": "6.7.8",
+    "nodemailer": "6.7.8"
   },
   "devDependencies": {
     "@types/bcrypt": "5.0.0",
