@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/Jean-Dv/PortfolioTemplateFullStack#readme",
   "dependencies": {
+    "@types/nodemailer": "^6.4.5",
     "axios": "0.27.2",
     "cors": "2.8.5",
     "dotenv": "16.0.1",

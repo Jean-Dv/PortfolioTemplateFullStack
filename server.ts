@@ -5,7 +5,6 @@ import log4js, { Log4js, Logger } from 'log4js'
 import ConfigEnv from './config/config.env'
 import { MongoService } from './services/mongoDb'
 
-import { authRouter } from './api/auth/router'
 import { mailRouter } from './api/mailer/router'
 import { repositoryRouter } from './api/github-repos/router'
 
@@ -58,7 +57,6 @@ export class Server {
   }
 
   private routes (): void {
-    this.app.use(`${this.routePrefix}/auth`, authRouter)
     this.app.use(`${this.routePrefix}/mail`, mailRouter)
     this.app.use(`${this.routePrefix}/github`, repositoryRouter)
   }
