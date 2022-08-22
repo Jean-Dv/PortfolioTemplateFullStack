@@ -3,7 +3,11 @@ import dotenv from 'dotenv'
 
 import { ENV, SanitizedENV } from './types'
 
-dotenv.config({ path: path.resolve(__dirname, `../.env.${process.env.NODE_ENV ?? 'development'}.local`) })
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config({ path: path.resolve(__dirname, `../.env.${process.env.NODE_ENV ?? 'development'}.local`) })
+} else {
+  dotenv.config()
+}
 
 const getConfig = (): ENV => {
   return {
@@ -25,7 +29,7 @@ const getConfig = (): ENV => {
 const getSanitizedConfig = (config: ENV): SanitizedENV => {
   for (const [key, value] of Object.entries(config)) {
     if (value === undefined) {
-      throw new Error(`Missing key ${key} in .env.${process.env.NODE_ENV as string}.local`)
+      throw new Error(`Missing key ${key} in ${__dirname}../.env.${process.env.NODE_ENV as string}.local`)
     }
   }
   return config as SanitizedENV
