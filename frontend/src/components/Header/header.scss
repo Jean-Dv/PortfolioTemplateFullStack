@@ -3,11 +3,9 @@
 .darkMode {
   .header__container {
     .left__content {
-      button {
-        span {
-          color: $primary-dark;
-          border-left: 2px solid $primary-dark;
-        }
+      a {
+        color: $primary-dark;
+        border-left: 2px solid $primary-dark;
       }
     }
     .right__content {
@@ -44,26 +42,24 @@
       transition: all 0.5s;
     }
 
-    button {
+    a {
       background-color: transparent;
       border: none;
       transition: all 0.2s ease-in-out;
       letter-spacing: 4px;
+      font-size: 16px;
+      font-weight: 600;
+      color: $primary;
+      margin-left: 10px;
+      border-left: 2px solid $primary;
+      padding-left: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+      transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.3);
+      text-decoration: none;
 
       &:hover {
         transform: scale(1.1);
-      }
-
-      span {
-        font-size: 16px;
-        font-weight: 600;
-        color: $primary;
-        margin-left: 10px;
-        border-left: 2px solid $primary;
-        padding-left: 10px;
-        cursor: pointer;
-        transition: all 0.3s;
-        transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.3);
       }
     }
   }

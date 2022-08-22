@@ -16,9 +16,7 @@ export default function Header() {
       <header className='header__container'>
         <div className='left__content'>
           <img src={Logo} className='header__logo' alt='logo' />
-          <button type='button'>
-            <span>Menu</span>
-          </button>
+          <a href='#projects'>View Projects</a>
         </div>
         <div className='right__content'>
           <div className='settings__buttons'>
