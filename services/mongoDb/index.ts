@@ -8,7 +8,6 @@ export class MongoService {
   public logger!: Logger
 
   private log!: Log4js
-  private mongoMemoryServer!: MongoMemoryServer
 
   private static _instance: MongoService
 
