@@ -95,7 +95,7 @@ main {
 
 .darkMode {
   .App {
-    background-color: #0f1b61;
+    background: $background-dark;
   }
 }
 
@@ -103,6 +103,7 @@ main {
   padding: 20px 20px 0 20px;
   background-color: white;
   transition: background-color 0.3s ease-in-out;
+  background: $background;
 }
 
 @media screen and (max-width: 768px) {

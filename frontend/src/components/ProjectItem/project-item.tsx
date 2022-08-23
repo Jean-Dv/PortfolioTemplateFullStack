@@ -9,10 +9,11 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
   forks,
   language,
   description,
+  url,
 }: ProjectItemProps) => {
   return (
     <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} transitionSpeed={500}>
-      <div className='project__item'>
+      <a href={url} target='_blank' rel='noopener noreferrer' className='project__item'>
         <h1 className='name'>{name}</h1>
         <div className='statics'>
           <span>
@@ -26,12 +27,12 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
         </div>
         <div className='language'>
           <span>Language:</span>
-          <span>{language}</span>
+          <span>{language ? language : 'No Language'}</span>
         </div>
         <div className='description'>
           <p>{description}</p>
         </div>
-      </div>
+      </a>
     </Tilt>
   )
 }
