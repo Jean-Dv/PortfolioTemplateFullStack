@@ -38,9 +38,7 @@ export default function Home() {
   }
 
   useEffect(() => {
-    return () => {
-      fetchApi()
-    }
+    fetchApi()
   }, [])
 
   return (
