@@ -8,6 +8,11 @@
     "location": "Colombia, Antioquia",
     "cvURL": "https://codestapi.herokuapp.com/assets/EstebanEstradaCV.pdf"
   },
+  "emailConfig": {
+    "serviceID": "service_2gmkf37",
+    "templateID": "template_hyqvq0o",
+    "publicAPIKEY": "user_gd2KR0qfZipAt8R4uhcr4"
+  },
   "social": [
     {
       "name": "Twitter",
