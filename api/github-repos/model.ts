@@ -16,11 +16,14 @@ const repositorySchema = new Schema({
   description: {
     type: String
   },
-  stars: {
+  forks: {
     type: Number
   },
-  forks: {
-    Type: Number
+  language: {
+    type: String
+  },
+  stars: {
+    type: Number
   }
 }, { timestamps: true, versionKey: false })
 
