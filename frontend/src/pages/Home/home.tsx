@@ -20,28 +20,25 @@ export default function Home() {
   const fetchApi = () => {
     fetchRepositories().then((response: fetchApiResponse) => {
       if (response.ok) {
-        response.data.map((repo: fetchDataProps) => {
-          setRepositories((prevState) => [
-            ...prevState,
-            {
-              id: repo._id,
-              name: repo.name,
-              description: repo.description,
-              stars: repo.stars,
-              forks: repo.forks,
-              language: repo.language,
-              url: repo.url,
-            },
-          ])
-        })
+        const repositoriesOrganiced = response.data.map((repo: fetchDataProps) => {
+          return {
+            id: repo._id,
+            name: repo.name,
+            description: repo.description,
+            stars: repo.stars,
+            forks: repo.forks,
+            language: repo.language,
+            url: repo.url,
+          }
+        }) as ProjectItemProps[]
+
+        setRepositories(repositoriesOrganiced)
       }
     })
   }
 
   useEffect(() => {
-    return () => {
-      fetchApi()
-    }
+    fetchApi()
   }, [])
 
   return (
