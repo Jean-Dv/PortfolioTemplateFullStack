@@ -32,7 +32,7 @@ const Projects = [
 ]
 
 export default function Home() {
-  const { firstName, lastName, carrer, location } = CONFIG.author
+  const { firstName, lastName, carrer, location, cvURL } = CONFIG.author
 
   return (
     <>
@@ -48,14 +48,22 @@ export default function Home() {
               <span className='home__description'>
                 Im an <b>{carrer}</b> from <br /> {location}
               </span>
+              {cvURL && (
+                <a target='_blank' rel='noopener noreferrer' href={cvURL ? cvURL : '#'}>
+                  Download CV
+                </a>
+              )}
             </Fade>
           </div>
           <div className={CONFIG.useFullName ? 'avatar__container spaced' : 'avatar__container'}>
             <Avatar />
           </div>
+          <div className='home__scroll'>
+            <span>Scroll Down</span>
+          </div>
         </div>
       </section>
-      <section className='projects__section'>
+      <section id='projects' className='projects__section'>
         <div className='projects__container'>
           <Fade direction='left'>
             <div className='section__title'>

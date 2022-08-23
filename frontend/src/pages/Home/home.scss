@@ -5,7 +5,23 @@
     background-color: $background-dark;
 
     .home__container {
+      .home__scroll {
+        background-color: $primary-dark;
+
+        &:after {
+          color: $primary-dark;
+        }
+
+        span {
+          color: $primary-dark;
+        }
+      }
       .title__container {
+
+        a {
+          color: $primary-dark;
+        }
+
         .home__title {
           color: $primary-dark;
         }
@@ -31,6 +47,37 @@
     margin: 0 auto;
     position: relative;
 
+    .home__scroll {
+      position: absolute;
+      left: 15px;
+      width: 2px;
+      height: 85px;
+      top: 62%;
+      background-color: $primary;
+      position: relative;
+      animation: scrollDown 1s alternate-reverse infinite;
+
+      &:after {
+        content: '\25bc';
+        color: $primary;
+        position: absolute;
+        left: -8px;
+        bottom: -15px;
+        font-size: 20px;
+      }
+
+      span {
+        font-size: 14px;
+        transform: rotate(-90deg);
+        position: absolute;
+        font-weight: bold;
+        left: -60px;
+        top: 22px;
+        width: 100px;
+        color: $primary;
+      }
+    }
+
     .title__container {
       top: 40%;
       transform: translateY(-50%);
@@ -40,6 +87,20 @@
       align-items: flex-start;
       justify-content: center;
       gap: 20px;
+
+      a {
+        color: $primary;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        letter-spacing: 4px;
+        transition: all 0.5s;
+
+        &:hover {
+          letter-spacing: 2px;
+        }
+      }
 
       .home__title {
         font-size: 100px;
@@ -205,6 +266,11 @@
 @media screen and (max-width: 1440px) {
   .home__section {
     .home__container {
+      .home__scroll {
+        top: 65%;
+        left: 95px;
+      }
+
       .title__container {
         margin-left: 80px;
 
@@ -237,6 +303,10 @@
       align-items: center;
       justify-content: center;
       padding: 50px 0;
+
+      .home__scroll {
+        display: none;
+      }
 
       .title__container {
         margin-left: 0;
@@ -288,5 +358,14 @@
       font-size: 2rem;
       margin: 20px 0;
     }
+  }
+}
+
+@keyframes scrollDown {
+  from {
+    height: 85px;
+  }
+  to {
+    height: 110px;
   }
 }

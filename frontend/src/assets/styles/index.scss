@@ -15,6 +15,48 @@ html {
   -webkit-text-size-adjust: 100%; /* 2 */
   font-family: Arial, Helvetica, sans-serif;
 
+  /* This Styles is For Sweet Alert Colors Error and Succes */
+
+  /* Error */
+
+  .swal2-icon.swal2-error {
+    border-color: $secondary !important;
+    color: $secondary !important;
+  }
+
+  .swal2-icon.swal2-error [class^='swal2-x-mark-line'] {
+    background-color: $secondary !important;
+  }
+
+  .swal2-popup.swal2-toast .swal2-success {
+    border-color: $secondary !important;
+  }
+
+  /* Success */
+
+  .swal2-icon.swal2-success {
+    border-color: $secondary;
+    color: $secondary;
+  }
+
+  .swal2-icon.swal2-success [class^='swal2-success-line'] {
+    background-color: $secondary;
+  }
+
+  .swal2-icon.swal2-success .swal2-success-ring {
+    border: 0.25em em solid $secondary !important;
+    border-bottom-color: $secondary !important;
+    border-left-color: $secondary !important;
+    border-top-color: $secondary !important;
+    border-right-color: $secondary !important;
+  }
+
+  .swal2-timer-progress-bar {
+    background: $secondary;
+  }
+
+  /* ScrollBar Style of All WebPage */
+
   ::-webkit-scrollbar {
     width: 5px;
     height: 10px;

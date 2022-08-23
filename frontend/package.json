@@ -1,8 +1,10 @@
 {
-  "name": "frontend",
+  "name": "portfoliofullstack",
+  "description": "A Full Stack Portfolio created with React and TypeScript",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emailjs/browser": "^3.6.2",
     "@emotion/react": "^11.10.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
@@ -17,6 +19,7 @@
     "react-parallax-tilt": "^1.7.51",
     "react-router-dom": "6",
     "react-scripts": "5.0.1",
+    "sweetalert2": "^11.4.29",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
   },
@@ -28,6 +31,16 @@
     "lint": "eslint src/**/*.{js,jsx,ts,tsx,json}",
     "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx,json}'",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jean-Dv/PortfolioTemplateFullStack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jean-Dv/PortfolioTemplateFullStack/issues"
   },
   "eslintConfig": {
     "extends": [
