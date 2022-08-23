@@ -16,11 +16,15 @@
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   max-width: 1440px;
-
+  min-width: 1440px;
+  text-decoration: none;
+  
   .name {
     font-size: 2rem;
     color: $primary;
     margin: 10px 0 10px 0;
+    width: 100%;
+    overflow: hidden;
   }
 
   .statics {
@@ -119,5 +123,19 @@
         color: $primary-dark;
       }
     }
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .project__item {
+    max-width: 100%;
+    min-width: 1200px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .project__item {
+    max-width: 300px;
+    min-width: 300px;
   }
 }

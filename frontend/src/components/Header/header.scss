@@ -127,6 +127,10 @@
     .left__content {
       padding: 0 0 0 10px;
 
+      a {
+        display: none;
+      }
+
       .header__logo {
         width: 40px;
         height: 40px;
