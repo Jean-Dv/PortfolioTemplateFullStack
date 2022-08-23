@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import process from 'process'
 import { Logger } from 'log4js'
 
 import { Server } from '../server'
@@ -9,6 +10,7 @@ async function saveDatabaseRepositories (logger: Logger): Promise<void> {
     const repositoryController = RepositoryController.instance
     await repositoryController.saveRepositories()
     logger.info('UPDATE ALL REPOSITORIES')
+    process.exit(0)
   } catch (error: any) {
     logger.error(error)
   }
