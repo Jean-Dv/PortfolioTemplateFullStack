@@ -1,5 +1,6 @@
 {
   "useFullName": true,
+  "apiURL": "https://portfolio-jeandv.herokuapp.com/api/v1/github/repos",
   "author": {
     "firstName": "Esteban",
     "lastName": "Estrada",

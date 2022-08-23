@@ -7,32 +7,42 @@ import CONFIG from '../../config/config.json'
 import './home.scss'
 import SocialMedia from '../../components/SocialMedia/socialmedia'
 import Form from '../../components/Form/form'
-
-const Projects = [
-  {
-    id: '1',
-    name: 'Portfolio FullStack',
-    description:
-      'My dotfiles repo, here you can find all my window manager configs as well as documentation and a guide on how to make your own desktop environment.',
-    stars: 300,
-    forks: 120,
-    language: 'TypeScript',
-    url: 'https://codest.vercel.app',
-  },
-  {
-    id: '2',
-    name: 'Portfolio Frontend',
-    description:
-      'My dotfiles repo, here you can find all my window manager configs as well as documentation and a guide on how to make your own desktop environment.',
-    stars: 300,
-    forks: 120,
-    language: 'TypeScript',
-    url: 'https://codest.vercel.app',
-  },
-]
+import { useEffect, useState } from 'react'
+import { fetchRepositories } from '../../services/api'
+import { ProjectItemProps } from '../../components/types'
+import { fetchApiResponse, fetchDataProps } from '../../services/types/services'
 
 export default function Home() {
   const { firstName, lastName, carrer, location, cvURL } = CONFIG.author
+
+  const [repositories, setRepositories] = useState<ProjectItemProps[]>([])
+
+  const fetchApi = () => {
+    fetchRepositories().then((response: fetchApiResponse) => {
+      if (response.ok) {
+        response.data.map((repo: fetchDataProps) => {
+          setRepositories((prevState) => [
+            ...prevState,
+            {
+              id: repo._id,
+              name: repo.name,
+              description: repo.description,
+              stars: repo.stars,
+              forks: repo.forks,
+              language: repo.language,
+              url: repo.url,
+            },
+          ])
+        })
+      }
+    })
+  }
+
+  useEffect(() => {
+    return () => {
+      fetchApi()
+    }
+  }, [])
 
   return (
     <>
@@ -71,7 +81,7 @@ export default function Home() {
               <h1>Github Projects</h1>
             </div>
           </Fade>
-          <ProjectsList projects={Projects} />
+          <ProjectsList projects={repositories} />
         </div>
       </section>
       <section className='contact__section'>
