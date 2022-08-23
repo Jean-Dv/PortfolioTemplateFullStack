@@ -32,6 +32,7 @@ interface FormDataProps {
   fullname: string
   email: string
   message: string
+  isSubmitting: boolean
 }
 
 export {

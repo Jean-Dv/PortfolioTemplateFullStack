@@ -1,7 +1,7 @@
+import React from 'react'
 import Input from '../Input/input'
 import Tilt from 'react-parallax-tilt'
 import { Fade } from 'react-awesome-reveal'
-
 import './form.scss'
 import { useForm } from './hooks/useForm'
 
@@ -9,14 +9,13 @@ const INITIAL_STATE = {
   fullname: '',
   email: '',
   message: '',
+  isSubmitting: false,
 }
 
 const Form = () => {
-  const submitMessage = () => {
-    console.log(values)
-  }
+  const { onChange, onSubmit, values } = useForm(INITIAL_STATE)
 
-  const { onChange, onSubmit, values } = useForm(submitMessage, INITIAL_STATE)
+  const [isSubmitting, setIsSubmitting] = React.useState(false)
 
   return (
     <Fade className='fade__container'>
@@ -56,7 +55,9 @@ const Form = () => {
             />
           </Tilt>
         </div>
-        <button type='submit'>Send Message</button>
+        <button type='submit'>
+          {values.isSubmitting ? <i className='fa fa-circle-o-notch fa-spin' /> : 'Send Message'}
+        </button>
       </form>
     </Fade>
   )
