@@ -97,11 +97,11 @@ To configure the aforementioned cron job you will only have to go to resources i
 ![Screen in resources](https://i.ibb.co/TmTFKTb/1661218887-screensht.png)
 ![Screen in submit order from](https://i.ibb.co/pwrg4yg/1661218902-screensht.png)
 ### 5. Add cron job in heroku scheduler
-To add it you will have to click on the link that appears. (Heroku Scheduler)
+To add it you will have to click on the link that appears. (Heroku Scheduler) <br>
 ![Heroku Scheduler resources](https://i.ibb.co/16dRG7q/1661219105-screensht.png)
-- **Create job**
+- **Create job** <br>
 ![Heroku Scheduler](https://i.ibb.co/x7fkxkr/1661219225-screensht.png)
-- **Job editor**
+- **Job editor** <br>
 ![Heroku Job Editor](https://i.ibb.co/TrmNSjd/1661219329-screensht.png)
 
 **Just save job and ready we have configured our backend**
