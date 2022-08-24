@@ -3,19 +3,13 @@ import dotenv from 'dotenv'
 
 import { ENV, SanitizedENV } from './types'
 
-if (process.env.NODE_ENV !== 'production') {
-  dotenv.config({ path: path.resolve(__dirname, `../.env.${process.env.NODE_ENV ?? 'development'}.local`) })
-} else {
-  dotenv.config()
-}
+dotenv.config({ path: path.resolve(__dirname, '../.env') })
 
 const getConfig = (): ENV => {
   return {
     NODE_ENV: process.env.NODE_ENV,
     PORT: (process.env.PORT !== undefined) ? Number(process.env.PORT) : 8080,
     MONGO_URI: process.env.MONGO_URI,
-    SALTROUNDS: Number(process.env.SALTROUNDS),
-    SECRETKEY: process.env.SECRETKEY,
     MAIL_HOST: process.env.MAIL_HOST,
     MAIL_PORT: Number(process.env.MAIL_PORT),
     MAIL_AUTH_USER: process.env.MAIL_AUTH_USER,
