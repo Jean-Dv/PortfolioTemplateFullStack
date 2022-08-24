@@ -20,14 +20,11 @@ export class MailController {
       const transporter = createTransport({
         host: ConfigEnv.MAIL_HOST,
         port: ConfigEnv.MAIL_PORT,
-        secure: false,
+        secure: true,
         requireTLS: true,
         auth: {
-          type: 'OAuth2',
-          user: 'jean.valencia@uptc.edu.co',
-          clientId: ConfigEnv.GOOGLE_CLIENT_ID,
-          clientSecret: ConfigEnv.GOOGLE_CLIENT_SECRET,
-          refreshToken: ConfigEnv.GOOGLE_REFRESH_TOKEN
+          user: ConfigEnv.MAIL_AUTH_USER,
+          pass: ConfigEnv.MAIL_AUTH_PASSWD
         }
       })
       return transporter
