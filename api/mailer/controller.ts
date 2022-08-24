@@ -37,7 +37,7 @@ export class MailController {
     try {
       const { from, fullname, subject, text } = propsMail
       const info = await this.main().sendMail({
-        to: 'mrjunior127@gmail.com',
+        to: ConfigEnv.MAIL_TO as string,
         subject: subject,
         html: `<strong>Correo del usuario: </strong> ${from} <br>
               <strong>Nombre completo del usuario: </strong> ${fullname} <br>
