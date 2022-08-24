@@ -37,6 +37,7 @@ export class MailController {
     try {
       const { from, fullname, subject, text } = propsMail
       const info = await this.main().sendMail({
+        from: `"New message from portfolio 📌" <${ConfigEnv.MAIL_AUTH_USER}`,
         to: ConfigEnv.MAIL_TO as string,
         subject: subject,
         html: `<strong>Correo del usuario: </strong> ${from} <br>
