@@ -3,11 +3,7 @@ import dotenv from 'dotenv'
 
 import { ENV, SanitizedENV } from './types'
 
-if (process.env.NODE_ENV !== 'production') {
-  dotenv.config({ path: path.resolve(__dirname, `../.env.${process.env.NODE_ENV ?? 'development'}.local`) })
-} else {
-  dotenv.config()
-}
+dotenv.config({ path: path.resolve(__dirname, '../.env') })
 
 const getConfig = (): ENV => {
   return {
