@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import { MongoMemoryServer } from 'mongodb-memory-server'
 import log4js, { Log4js, Logger } from 'log4js'
 
 import { OptionsUris } from '../types'
@@ -8,6 +9,7 @@ export class MongoService {
   public logger!: Logger
 
   private log!: Log4js
+  private mongoMemoryServer!: MongoMemoryServer
 
   private static _instance: MongoService
 
@@ -31,11 +33,13 @@ export class MongoService {
 
   async getUri (): Promise<string> {
     try {
+      this.mongoMemoryServer = await MongoMemoryServer.create()
       const options: OptionsUris = {
+        test: this.mongoMemoryServer.getUri(),
         development: ConfigEnv.MONGO_URI,
         production: ConfigEnv.MONGO_URI
       }
-      return options[ConfigEnv.NODE_ENV]
+      return options[ConfigEnv.NODE_ENV ?? 'development']
     } catch (err) {
       this.logger.error(err)
       throw new Error('🔴 Error getting uris...')
@@ -60,6 +64,7 @@ export class MongoService {
     if (ConfigEnv.NODE_ENV === 'test') {
       await mongoose.connection.dropDatabase()
       await mongoose.connection.close()
+      await this.mongoMemoryServer.stop()
     }
   }
 }
