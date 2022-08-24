@@ -1,31 +1,31 @@
 {
   "useFullName": true,
-  "apiURL": "https://portfolio-jeandv.herokuapp.com/api/v1/github/repos",
+  "apiURL": "https://urltoapi.herokuapp.com",
   "author": {
-    "firstName": "Esteban",
-    "lastName": "Estrada",
-    "carrer": "System Engineer",
-    "email": "davinsontc@outlook.com",
-    "location": "Colombia, Antioquia",
-    "cvURL": "https://codestapi.herokuapp.com/assets/EstebanEstradaCV.pdf"
+    "firstName": "firstName",
+    "lastName": "lastName",
+    "carrer": "Carrer",
+    "email": "email@email.com",
+    "location": "Location, Region",
+    "cvURL": "https://urltocurriculum.com"
   },
   "emailConfig": {
-    "serviceID": "service_2gmkf37",
-    "templateID": "template_hyqvq0o",
-    "publicAPIKEY": "user_gd2KR0qfZipAt8R4uhcr4"
+    "serviceID": "serviceID",
+    "templateID": "templateID",
+    "publicAPIKEY": "publicAPIKEY"
   },
   "social": [
     {
       "name": "Twitter",
-      "url": "https://twitter.com/codest_1x"
+      "url": "https://twitter.com/user"
     },
     {
       "name": "Linkedin",
-      "url": "https://www.linkedin.com/"
+      "url": "https://www.linkedin.com/in/userid"
     },
     {
       "name": "Github",
-      "url": "https://github.com/Codest-x"
+      "url": "https://github.com/userid"
     }
   ]
 }
