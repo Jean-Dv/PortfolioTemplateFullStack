@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react'
 import { fetchRepositories } from '../../services/api'
 import { ProjectItemProps } from '../../components/types'
 import { fetchApiResponse, fetchDataProps } from '../../services/types/services'
+import BackToTopButton from '../../components/BackToTop/BackTop'
 
 export default function Home() {
   const { firstName, lastName, carrer, location, cvURL } = CONFIG.author
@@ -88,6 +89,7 @@ export default function Home() {
         <Form />
       </section>
       <SocialMedia social={CONFIG.social} />
+      <BackToTopButton />
     </>
   )
 }

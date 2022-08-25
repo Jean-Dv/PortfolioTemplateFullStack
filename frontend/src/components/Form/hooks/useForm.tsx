@@ -19,22 +19,19 @@ export const useForm = (initialState: FormDataProps) => {
     setValues({ ...values, isSubmitting: true })
 
     // await callback()
-    await sendEmail(event).then(
-      (result) => {
+    await sendEmail(values).then((response) => {
+      if (response.ok) {
         Toast.fire({
           icon: 'success',
           title: 'Email sent successfully',
         })
-        setValues({ ...values, isSubmitting: false })
-      },
-      (error) => {
+      } else {
         Toast.fire({
           icon: 'error',
-          title: 'Email sending failed',
+          title: 'Email not sent',
         })
-        setValues({ ...values, isSubmitting: false })
-      },
-    )
+      }
+    })
 
     setValues({ ...initialState })
   }
