@@ -100,28 +100,13 @@ Here is a little explication of the data that you will need.
 
 **useFullName** (True or False): This field manage what do you want to show in the page, the fullname including firstName and lastName or only the firstName.
 
-**apiURL** : This field is the URL of the API, the information on how to upload the API to heroku is in the main README, you can use the service you want, what matters is that you put the full URL `https://urltoapi.herokuapp.com/api/v1/github/repos` make sure that the URL returns all your repositories.
+**apiURL** : This field is the URL of the API, the information on how to upload the API to heroku or render is in the main README, you can use the service you want, what matters is that you put the full URL `https://urltoapi.herokuapp.com` make sure that the URL is complete and is the path URL.
 
 **author**: This Object field contain all the information about you (author), like firstName, lastName, carrer, location, email.
 
 - **cvURL**: This field is not necessary, but if you want to add this is the URL to your curriculum PDF, to download or show directly from the website.
 
-**emailConfig**: This Object contains the information for the service of emailJS, you only need to register in [emailJS](https://dashboard.emailjs.com/sign-up), then you can see a dashboard like this:
-
-- ![EmailJS Dashboard](https://i.ibb.co/BjdY9Rv/Screenshot-2022-08-22-191017.png)
-
-Only Click in Add New Service, and select the service that you want, and configure that, then you need to fill the nex fields:
-
-- **serviceID**: This field appears on the home page of the dashboard, you can do click on the service that you create and see that.
-
-  ![ServiceID](https://i.ibb.co/cxwBb04/Screenshot-2022-08-22-191351.png)
-
-- **templateID**: You need to go to the option templates, then you need to create a template file like this:
-  ![TemplateID](https://i.ibb.co/vXkDgKZ/Screenshot-2022-08-22-191539.png)
-
-And save that, then you need to copy the templateID, you can open your template and go to settings, and you see that like the last step.
-
-**publicAPIKEY**: Last, you need to go to account and copy your publicAPIKey.
+**subjectDefault**: This field is used for the emails that the people send you, this is a default subject, if you want you can add a Subject Input to the form component.
 
 **social**: This Array contains all the social media that you want to show, only you need to add the URL to the website and the name of the media, make sure that the name was correct, because the icon comes from the name.
 
