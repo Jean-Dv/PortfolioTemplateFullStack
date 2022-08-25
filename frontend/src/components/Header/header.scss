@@ -119,6 +119,12 @@
   }
 }
 
+@media screen and (max-width: 1366px) {
+  .header__container {
+    padding: 10px 0;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .header__container {
     width: 100%;
