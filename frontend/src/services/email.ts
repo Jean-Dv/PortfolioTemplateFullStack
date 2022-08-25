@@ -1,6 +1,6 @@
-import emailjs from '@emailjs/browser'
-import CONFIG from '../config/config.json'
 import Swal from 'sweetalert2'
+import { FormDataProps } from '../components/types'
+import CONFIG from '../config/config.json'
 
 const Toast = Swal.mixin({
   toast: true,
@@ -14,10 +14,21 @@ const Toast = Swal.mixin({
   },
 })
 
-function sendEmail(e: React.FormEvent<HTMLFormElement>) {
-  const { serviceID, templateID, publicAPIKEY } = CONFIG.emailConfig
+function sendEmail(values: FormDataProps) {
+  const { apiURL, subjectDefault } = CONFIG
 
-  return emailjs.sendForm(serviceID, templateID, e.currentTarget, publicAPIKEY)
+  return fetch(`${apiURL}/api/v1/mail`, {
+    method: 'POST',
+    body: JSON.stringify({
+      from: values.email,
+      subject: subjectDefault,
+      text: values.message,
+      fullname: values.fullname,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
 }
 
 export { sendEmail, Toast }

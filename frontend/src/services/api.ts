@@ -4,7 +4,7 @@ import { fetchApiResponse } from './types/services'
 const { apiURL } = CONFIG
 
 const fetchRepositories = async (): Promise<fetchApiResponse> => {
-  const response = await fetch(`${apiURL}`)
+  const response = await fetch(`${apiURL}/api/v1/github/repos`)
   return response.json()
 }
 
