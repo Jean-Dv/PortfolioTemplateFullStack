@@ -291,12 +291,32 @@
   }
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1366px) {
   .home__section {
+    .avatar__container {
+      &.spaced {
+        margin-right: 80px;
+      }
+    }
+
     .home__container {
       .home__scroll {
         top: 68%;
         left: 95px;
+      }
+
+      .title__container {
+        .home__title {
+          font-size: 60px;
+        }
+
+        a {
+          font-size: 16px;
+        }
+
+        .home__description {
+          font-size: 18px;
+        }
       }
     }
   }
