@@ -14,7 +14,6 @@ function BackToTopButton() {
 
   const handleScroll = () => {
     const { scrollY } = window
-    console.log(scrollY)
     setIsVisible(scrollY > 100)
   }
 
