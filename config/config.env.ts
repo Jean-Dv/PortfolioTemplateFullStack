@@ -1,9 +1,8 @@
-import path from 'path'
 import dotenv from 'dotenv'
 
 import { ENV, SanitizedENV } from './types'
 
-dotenv.config({ path: path.resolve(__dirname, '../.env') })
+dotenv.config()
 
 const getConfig = (): ENV => {
   return {
