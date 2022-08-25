@@ -1,0 +1,51 @@
+@import '../../assets/styles/vars';
+
+.darkMode {
+  .backtop__container {
+    border: 2px solid $primary-dark;
+
+    .icon-3d {
+      color: $primary-dark;
+    }
+  }
+}
+
+.backtop__container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: 2px solid $primary;
+  display: none;
+
+  &.isVisible {
+    display: flex;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  .icon-3d {
+    font-size: 25px;
+    color: $primary;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .backtop__container {
+    display: none;
+
+    &.isVisible {
+      display: none;
+    }
+  }
+}
