@@ -1,6 +1,7 @@
 {
   "useFullName": true,
-  "apiURL": "https://urltoapi.herokuapp.com",
+  "apiURL": "https://jean-dv.onrender.com",
+  "subjectDefault": "Message From Portfolio",
   "author": {
     "firstName": "firstName",
     "lastName": "lastName",
@@ -8,11 +9,6 @@
     "email": "email@email.com",
     "location": "Location, Region",
     "cvURL": "https://urltocurriculum.com"
-  },
-  "emailConfig": {
-    "serviceID": "serviceID",
-    "templateID": "templateID",
-    "publicAPIKEY": "publicAPIKEY"
   },
   "social": [
     {
