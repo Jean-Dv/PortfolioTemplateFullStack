@@ -31,17 +31,23 @@ export class MongoService {
     this.logger = this.log.getLogger('mongoService')
   }
 
-  async getUri (): Promise<string> {
+  async getUri (): Promise<any> {
     try {
       if (ConfigEnv.NODE_ENV === 'test') {
         this.mongoMemoryServer = await MongoMemoryServer.create()
       }
       const options: OptionsUris = {
-        test: this.mongoMemoryServer.getUri(),
-        development: ConfigEnv.MONGO_URI,
-        production: ConfigEnv.MONGO_URI
+        test: () => {
+          return this.mongoMemoryServer.getUri()
+        },
+        development: function () {
+          return ConfigEnv.MONGO_URI
+        },
+        production: function () {
+          return ConfigEnv.MONGO_URI
+        }
       }
-      return options[ConfigEnv.NODE_ENV ?? 'development']
+      return options[ConfigEnv.NODE_ENV]()
     } catch (err) {
       this.logger.error(err)
       throw new Error('🔴 Error getting uris...')
