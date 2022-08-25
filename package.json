@@ -1,6 +1,6 @@
 {
   "name": "portfoliotemplatebackend",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Api for porfolio template backend",
   "main": "./bin/www.ts",
   "scripts": {
