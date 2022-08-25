@@ -10,11 +10,13 @@ export class HomeHttpHandler {
   }
 
   getAllRoutes (req: Request, res: Response): Response {
+    const protocol = req.protocol
+    const hostname = req.headers.host as string
     return res.status(200).json({
       ok: true,
       data: {
-        get_all_repositories: `${req.baseUrl}/api/v1/github/repos (GET)`,
-        send_mail_contact_form: `${req.baseUrl}/api/v1/mail (POST)`
+        get_all_repositories: `${protocol}://${hostname}/api/v1/github/repos`,
+        send_mail_contact_form: `${protocol}://${hostname}/api/v1/mail`
       }
     })
   }
