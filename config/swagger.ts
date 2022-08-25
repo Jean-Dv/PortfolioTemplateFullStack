@@ -12,7 +12,8 @@ const options = {
     }
   },
   apis: [
-    './api/github-repos/router.ts', './api/github-repos/model.ts'
+    './api/github-repos/*',
+    './api/mailer/*'
   ]
 }
 
