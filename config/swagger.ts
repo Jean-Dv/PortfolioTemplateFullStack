@@ -4,16 +4,16 @@ import { Logger } from 'log4js'
 import { Application, Response, Request } from 'express'
 
 const options = {
-  definitions: {
+  definition: {
     openapi: '3.0.0',
     info: {
       title: 'Portfolio Fullstack API',
       version: '1.0.0'
-    },
-    apis: [
-      './api/github-repos/router.ts', './api/github-repos/model.ts'
-    ]
-  }
+    }
+  },
+  apis: [
+    './api/github-repos/router.ts', './api/github-repos/model.ts'
+  ]
 }
 
 const swaggerSpec = swaggerJSDoc(options)
