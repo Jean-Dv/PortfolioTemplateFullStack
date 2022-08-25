@@ -291,6 +291,17 @@
   }
 }
 
+@media screen and (max-width: 1280px) {
+  .home__section {
+    .home__container {
+      .home__scroll {
+        top: 68%;
+        left: 95px;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 768px) {
   .home__section {
     width: 100vw;
