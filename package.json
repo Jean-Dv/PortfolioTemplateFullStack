@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "NODE_ENV=development ts-node-dev bin/www.ts",
     "lint": "ts-standard",
-    "start": "NODE_ENV=production node build/bin/www.js",
+    "start": "npm run update:repos && NODE_ENV=production node build/bin/www.js",
     "build": "NODE_ENV=production npx tsc",
     "test": "NODE_ENV=test npx jest --verbose",
     "test:watch": "NODE_ENV=test npm run test -- --watchAll",
