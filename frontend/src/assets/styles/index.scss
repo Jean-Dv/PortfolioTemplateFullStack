@@ -104,6 +104,7 @@ main {
   background-color: white;
   transition: background-color 0.3s ease-in-out;
   background: $background;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 768px) {
