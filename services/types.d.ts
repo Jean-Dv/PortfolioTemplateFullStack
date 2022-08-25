@@ -1,1 +1,1 @@
-export type OptionsUris = Record<string, string | string>
+export type OptionsUris = Record<string, Function>
