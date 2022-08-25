@@ -1,14 +1,25 @@
 .projects__list {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  gap: 20px; */
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
+  place-content: center;
+  align-items: center;
 }
 
 @media screen and (max-width: 768px) {
   .projects__list {
     width: 90%;
     margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }
