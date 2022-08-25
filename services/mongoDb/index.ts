@@ -33,7 +33,9 @@ export class MongoService {
 
   async getUri (): Promise<string> {
     try {
-      this.mongoMemoryServer = await MongoMemoryServer.create()
+      if (ConfigEnv.NODE_ENV === 'test') {
+        this.mongoMemoryServer = await MongoMemoryServer.create()
+      }
       const options: OptionsUris = {
         test: this.mongoMemoryServer.getUri(),
         development: ConfigEnv.MONGO_URI,
