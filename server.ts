@@ -4,9 +4,11 @@ import log4js, { Log4js, Logger } from 'log4js'
 
 import ConfigEnv from './config/config.env'
 import { MongoService } from './services/mongoDb'
+import { swaggerDocs } from './config/swagger'
 
 import { mailRouter } from './api/mailer/router'
 import { repositoryRouter } from './api/github-repos/router'
+import { homeRouter } from './api/home/router'
 
 export class Server {
   public logger!: Logger
@@ -57,6 +59,8 @@ export class Server {
   }
 
   private routes (): void {
+    this.app.use('/', homeRouter)
+    this.app.use(`${this.routePrefix}/`, homeRouter)
     this.app.use(`${this.routePrefix}/mail`, mailRouter)
     this.app.use(`${this.routePrefix}/github`, repositoryRouter)
   }
@@ -70,6 +74,7 @@ export class Server {
       this.listen = this.app.listen(this.port, () => {
         this.logger.info(`[*] Server is running on port ${this.port}...`)
       })
+      swaggerDocs(this.app, this.port, this.routePrefix, this.logger)
     }
   }
 
