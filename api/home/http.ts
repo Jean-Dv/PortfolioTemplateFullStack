@@ -1,9 +1,11 @@
 import { Request, Response } from 'express'
 
-import { routePrefix } from '../../bin/www'
+import { Server } from '../../server'
 
 export class HomeHttpHandler {
-  redirectToHome (_req: Request, res: Response): void {
+  async redirectToHome (_req: Request, res: Response): Promise<void> {
+    const server = await Server.instance
+    const routePrefix = server.routePrefix
     return res.redirect(301, `${routePrefix}/home`)
   }
 
