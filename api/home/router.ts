@@ -7,3 +7,6 @@ const homeHttpHandler = new HomeHttpHandler()
 
 homeRouter.route('/')
   .get(homeHttpHandler.redirectToDocs)
+
+homeRouter.route('/ping')
+  .get(homeHttpHandler.getPing)
