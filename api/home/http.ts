@@ -22,7 +22,11 @@ export class HomeHttpHandler {
           'Content-Type': 'application/json'
         }
       }
-      void axios.request(options)
+      void axios.request(options).then(res => {
+        console.log(res.data)
+      }).catch(err => {
+        console.error(err.message)
+      })
     }, 20000)
     return res.json({
       ok: true,
